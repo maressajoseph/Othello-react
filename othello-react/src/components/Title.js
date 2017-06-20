@@ -16,7 +16,7 @@ class Title extends PureComponent {
   render() {
     return(
       <h1 className={this.classNames()}>
-        { this.props.content }
+        Othello
       </h1>
     )
   }

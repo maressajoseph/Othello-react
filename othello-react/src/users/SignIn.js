@@ -7,6 +7,7 @@ import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 import FlatButton from 'material-ui/FlatButton'
 import signIn from '../actions/user/sign-in'
+import Title from '../components/Title'
 
 const dialogStyle = {
   width: '400px',
