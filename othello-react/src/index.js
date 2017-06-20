@@ -7,6 +7,8 @@ import registerServiceWorker from './registerServiceWorker'
 import App from './App'
 import GameLobby from './games/GameLobby'
 import Game from './games/Game'
+import SignIn from './users/SignIn'
+import SignUp from './users/SignUp'
 import './index.css'
 
 ReactDOM.render(
@@ -15,6 +17,8 @@ ReactDOM.render(
       <Route path="/" component={App}>
         <IndexRoute component={GameLobby} />
         <Route path="/games/:gameId" component={Game} />
+        <Route path="/sing-in" component={SignIn} />
+        <Route path="/sing-up" component={SignUp} />
       </Route>
     </Router>
   </Provider>,
