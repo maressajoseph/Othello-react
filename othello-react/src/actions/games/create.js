@@ -8,14 +8,17 @@ import {
 
 const api = new API()
 
-export default (newGame) => {
+export default () => {
   return (dispatch) => {
     dispatch({ type: APP_LOADING })
 
+    const backend = api.service('games')
+
     api.app.authenticate()
+    backend.create({})
       .then((result) => {
-        dispatch({ type: APP_DONE_LOADING })
-        dispatch({ type: LOAD_SUCCESS })
+          dispatch({ type: APP_DONE_LOADING })
+          dispatch({ type: LOAD_SUCCESS })
       })
       .catch((error) => {
         dispatch({ type: APP_DONE_LOADING })

@@ -11,8 +11,9 @@ class CreateGameButton extends PureComponent {
     createGame: PropTypes.func.isRequired,
   }
 
-  createGame = () => {
-    return 
+  makeGame = () => {
+    const game = {}
+    this.props.createGame(game)
   }
 
   render() {
@@ -20,8 +21,8 @@ class CreateGameButton extends PureComponent {
     if (signedIn)
       return (
         <p className="CreateGameButton">
-          <button onClick={this.createGame}>
-            Create a new game
+          <button onClick={this.makeGame.bind(this)}>
+            Start a new game
           </button>
         </p>
       )
@@ -36,4 +37,4 @@ const mapStateToProps = ({ currentUser }) => ({
   signedIn: !!currentUser && !!currentUser._id,
 })
 
-export default connect(mapStateToProps)(CreateGameButton)
+export default connect(mapStateToProps, { createGame })(CreateGameButton)
