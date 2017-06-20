@@ -12,12 +12,7 @@ export default (newGame) => {
   return (dispatch) => {
     dispatch({ type: APP_LOADING })
 
-    const backend = api.app.authenticate()
-    .then() => {
-      
-    }
-
-    backend.create(newGame)
+    api.app.authenticate()
       .then((result) => {
         dispatch({ type: APP_DONE_LOADING })
         dispatch({ type: LOAD_SUCCESS })
@@ -29,8 +24,5 @@ export default (newGame) => {
           payload: error.message
         })
       })
-    .catch((error) => {
-
-    })
   }
 }
