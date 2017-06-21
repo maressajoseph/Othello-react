@@ -22,7 +22,7 @@ export class Game extends PureComponent {
 
   render() {
     const {
-      id,
+      _id,
       board,
       players,
       winner,
@@ -54,7 +54,7 @@ export class Game extends PureComponent {
       }
   }
 }
+//
+// const mapStateToProps = ({ games }) => ({ games })
 
-const mapStateToProps = ({ games }) => ({ games })
-
-export default connect(mapStateToProps)(Game)
+export default (Game)

@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router'
 import PropTypes from 'prop-types'
 import createGame from '../actions/games/create'
 import RaisedButton from 'material-ui/RaisedButton'
@@ -18,12 +17,12 @@ class CreateGameButton extends PureComponent {
   }
 
   render() {
-    const { createGame, signedIn } = this.props
+    const { signedIn } = this.props
     if (signedIn)
       return (
-        <p className="CreateGameButton">
+        <div className="CreateGameButton">
           <RaisedButton onClick={this.makeGame.bind(this)} icon={<StartIcon/>} primary={true} label="Start a new game"/>
-        </p>
+        </div>
       )
       else {
         return null
