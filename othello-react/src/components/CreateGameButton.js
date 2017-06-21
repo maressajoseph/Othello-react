@@ -12,8 +12,7 @@ class CreateGameButton extends PureComponent {
   }
 
   makeGame = () => {
-    const game = {}
-    this.props.createGame(game)
+    this.props.createGame()
   }
 
   render() {
