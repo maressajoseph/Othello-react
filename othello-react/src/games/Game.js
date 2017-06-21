@@ -32,23 +32,35 @@ export class Game extends PureComponent {
 
     if (players[1] === undefined)
       return (
-        <div className='players'>
-          <h3>Player 1:</h3>
-            <p>{players[0].name}</p>
-            <p>Score: {players[0].score}</p>
-          <h3>Player 2:</h3>
-            <p>No second player yet</p>
+        <div>
+          <div className='players'>
+            <h3>Player 1:</h3>
+              <p>{players[0].name}</p>
+              <p>Score: {players[0].score}</p>
+            <h3>Player 2:</h3>
+              <p>No second player yet</p>
+          </div>
+
+
+
+          <div className="boardField">
+            { board.map((x, index) => (<button key={index} className={`empty${board[index].box === undefined ? '' : (board[index].box ? ' pink':' green')}`}>{x.box}</button>)) }
+          </div>
         </div>
       )
       else {
         return (
-          <div className='players'>
-            <h3>Player 1:</h3>
-            <p>{players[0].name}</p>
-            <p>Score: {players[0].score}</p>
-            <h3>Player 2:</h3>
-            <p>{players[1].name}</p>
-            <p>Score: {players[1].score}</p>
+          <div>
+            <div className='players'>
+              <h3>Player 1:</h3>
+              <p>{players[0].name}</p>
+              <p>Score: {players[0].score}</p>
+              <h3>Player 2:</h3>
+              <p>{players[1].name}</p>
+              <p>Score: {players[1].score}</p>
+            </div>
+
+
           </div>
         )
       }
