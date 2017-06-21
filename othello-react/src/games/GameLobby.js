@@ -6,6 +6,7 @@ import Game from './Game'
 import fetchGames from '../actions/games/fetch'
 import subscribeToGamesService from '../actions/games/subscribe'
 import CreateGameButton from '../components/CreateGameButton'
+import JoinGameButton from '../components/JoinGameButton'
 
 export class GameLobby extends PureComponent {
   static propTypes = {
@@ -28,7 +29,7 @@ export class GameLobby extends PureComponent {
         <header>
           <Title content="Start playing" />
           <CreateGameButton />
-
+          <JoinGameButton />
         </header>
 
         <main>
