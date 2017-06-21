@@ -3,7 +3,9 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import PropTypes from 'prop-types'
 import createGame from '../actions/games/create'
-
+import RaisedButton from 'material-ui/RaisedButton'
+import StartIcon from 'material-ui/svg-icons/av/play-circle-filled'
+import './CreateGameButton.css'
 
 class CreateGameButton extends PureComponent {
   static propTypes = {
@@ -20,9 +22,7 @@ class CreateGameButton extends PureComponent {
     if (signedIn)
       return (
         <p className="CreateGameButton">
-          <button onClick={this.makeGame.bind(this)}>
-            Start a new game
-          </button>
+          <RaisedButton onClick={this.makeGame.bind(this)} icon={<StartIcon/>} primary={true} label="Start a new game"/>
         </p>
       )
       else {
