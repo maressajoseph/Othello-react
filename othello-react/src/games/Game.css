@@ -1,7 +1,13 @@
+.players {
+  display: flex;
+  margin-top: 20px; }
+
 .playerOne {
+  margin: 5%;
   color: #D16E9E; }
 
 .playerTwo {
+  margin: 5%;
   color: #18BC97; }
 
 .boardField {
