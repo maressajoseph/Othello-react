@@ -11,12 +11,14 @@ export class GameLobby extends PureComponent {
   static propTypes = {
     games: PropTypes.array.isRequired,
     fetchGames: PropTypes.func.isRequired,
+    subscribeToGamesService: PropTypes.func.isRequired,
   }
 
   componentWillMount() {
     this.props.fetchGames()
     this.props.subscribeToGamesService()
   }
+
 
   renderGame(game, index) {
     return <Game key={index} { ...game }  />
@@ -38,7 +40,7 @@ export class GameLobby extends PureComponent {
   }
 }
 
-const mapStateToProps = ({ games }) => ({ games })
+const mapStateToProps = ({ currentUser, currentGame, games }) => ({ currentUser, currentGame, games })
 
 export default connect(mapStateToProps, {
   fetchGames, subscribeToGamesService
