@@ -24,7 +24,6 @@ export class Game extends PureComponent {
     console.log(_id)
   }
 
-
   render() {
     const {
       _id,

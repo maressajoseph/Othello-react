@@ -5,6 +5,7 @@ import { Router, Route, IndexRoute } from 'react-router'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 import store, { history } from './store'
 import registerServiceWorker from './registerServiceWorker'
+import Game from './games/Game'
 import App from './App'
 import GameLobby from './games/GameLobby'
 import SignIn from './users/SignIn'
@@ -18,6 +19,7 @@ ReactDOM.render(
     <Router history={history}>
       <Route path="/" component={App}>
         <IndexRoute component={GameLobby} />
+        <Route path="/games/:gameId" component={Game} />
         <Route path="/sign-in" component={SignIn} />
         <Route path="/sign-up" component={SignUp} />
       </Route>

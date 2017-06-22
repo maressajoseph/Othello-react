@@ -18,6 +18,7 @@ export default (_id) => {
 
     api.app.authenticate()
       .then(() => {
+
         backend.patch(_id, { join: true })
           .then((result) => {
             dispatch({ type: APP_DONE_LOADING })

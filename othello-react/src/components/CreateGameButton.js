@@ -27,7 +27,6 @@ class CreateGameButton extends PureComponent {
       else {
         return null
       }
-
   }
 }
 

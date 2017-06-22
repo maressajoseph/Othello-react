@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import Title from '../components/Title'
 import Game from './Game'
 import fetchGames from '../actions/games/fetch'
 import subscribeToGamesService from '../actions/games/subscribe'
@@ -29,7 +28,6 @@ export class GameLobby extends PureComponent {
     return(
       <div>
         <header>
-          <Title content="Start playing" />
           <CreateGameButton />
           <JoinGameButton />
         </header>
