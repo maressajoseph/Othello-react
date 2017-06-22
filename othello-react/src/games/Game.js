@@ -19,7 +19,6 @@ export class Game extends PureComponent {
     }),
   }
 
-
   render() {
     const {
       _id,

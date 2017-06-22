@@ -10,7 +10,7 @@ export const JOINED_GAME = 'JOINED_GAME'
 
 const api = new API()
 
-export default (gameId) => {
+export default () => {
   return (dispatch) => {
     dispatch({ type: APP_LOADING })
 
@@ -18,7 +18,7 @@ export default (gameId) => {
 
     api.app.authenticate()
       .then(() => {
-        backend.patch(gameId, { join: true })
+        backend.patch()
           .then((result) => {
             dispatch({ type: APP_DONE_LOADING })
             dispatch({ type: LOAD_SUCCESS })
