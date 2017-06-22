@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
+import getCurrentGame from '../actions/games/get'
 import './Game.css'
 
 export class Game extends PureComponent {
@@ -13,10 +14,14 @@ export class Game extends PureComponent {
     winner: PropTypes.number,
     draw: PropTypes.bool,
     turn: PropTypes.number,
-    userId: PropTypes.shape({
-      _id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-    }),
+    userId: PropTypes.object.isRequired
+  }
+
+  componentWillMount() {
+    const { _id } = this.props
+    const { getCurrentGame } = this.props
+    getCurrentGame(_id)
+    console.log(_id)
   }
 
 
@@ -72,7 +77,7 @@ export class Game extends PureComponent {
       }
   }
 }
-//
-// const mapStateToProps = ({ games }) => ({ games })
 
-export default (Game)
+const mapStateToProps = ({ currentGame }) => ({ currentGame })
+
+export default connect(mapStateToProps, { getCurrentGame })(Game)
