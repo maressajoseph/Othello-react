@@ -25,18 +25,31 @@ export class GameLobby extends PureComponent {
   }
 
   render() {
-    return(
-      <div>
+    console.log()
+    if (!this.props.games[0]) {
+      return(
+        <div>
         <header>
           <CreateGameButton />
-          <JoinGameButton />
         </header>
-
         <main>
           { this.props.games.map(this.renderGame.bind(this)) }
         </main>
-      </div>
-    )
+        </div>
+      )
+    }
+    if (!!this.props.games[0]) {
+      return(
+        <div>
+        <header>
+          <JoinGameButton/>
+        </header>
+        <main>
+          { this.props.games.map(this.renderGame.bind(this)) }
+        </main>
+        </div>
+      )
+    }
   }
 }
 
