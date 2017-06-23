@@ -69,6 +69,7 @@ export class Game extends PureComponent {
                 <p>Score: {players[0].score}</p>
               </div>
               <div className="boardField">
+                <h3>{turn === 0 ? `It is ${players[0].name}'s turn` : `It is ${players[1].name}'s turn`}</h3>
                 { board.map((x, index) => (<button key={index} onClick={this.checkedBox(index).bind(this)} className={`empty${board[index].box === undefined ? '' : (board[index].box ? ' pink':' green')}`}>{x.box}</button>)) }
               </div>
               <div className="playerTwo">
