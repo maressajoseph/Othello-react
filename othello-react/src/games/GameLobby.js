@@ -16,7 +16,8 @@ export class GameLobby extends PureComponent {
 
   componentWillMount() {
     this.props.fetchGames()
-    this.props.subscribeToGamesService()
+    const { subscribed } = this.props
+    if (!subscribed) this.props.subscribeToGamesService()
   }
 
 
@@ -34,16 +35,16 @@ export class GameLobby extends PureComponent {
         </div>
       )
     }
-    
+
     if (this.props.games[0].players[0].userId !== this.props.currentUser._id && !this.props.games[0].players[1]) {
       return(
         <div>
-        <header>
-          <JoinGameButton/>
-        </header>
-        <main>
-          { this.props.games.map(this.renderGame.bind(this)) }
-        </main>
+          <header>
+            <JoinGameButton/>
+          </header>
+          <main>
+            { this.props.games.map(this.renderGame.bind(this)) }
+          </main>
         </div>
       )
     }
@@ -56,7 +57,7 @@ export class GameLobby extends PureComponent {
   }
 }
 
-const mapStateToProps = ({ currentUser, currentGame, games }) => ({ currentUser, currentGame, games })
+const mapStateToProps = ({ currentUser, currentGame, games, subscriptions }) => ({ currentUser, currentGame, games, subscribed: subscriptions.includes('games') })
 
 export default connect(mapStateToProps, {
   fetchGames, subscribeToGamesService
