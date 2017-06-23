@@ -12,7 +12,8 @@
 
 .boardField {
   height: 400px;
-  width: 400px; }
+  width: 400px;
+  text-align: center; }
 
 .empty {
   height: 50px;
