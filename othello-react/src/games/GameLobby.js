@@ -5,6 +5,7 @@ import Game from './Game'
 import fetchGames from '../actions/games/fetch'
 import subscribeToGamesService from '../actions/games/subscribe'
 import CreateGameButton from '../components/CreateGameButton'
+import DeleteGameButton from '../components/DeleteGameButton'
 import JoinGameButton from '../components/JoinGameButton'
 
 export class GameLobby extends PureComponent {
@@ -35,7 +36,6 @@ export class GameLobby extends PureComponent {
         </div>
       )
     }
-
     if (this.props.games[0].players[0].userId !== this.props.currentUser._id && !this.props.games[0].players[1]) {
       return(
         <div>
@@ -47,10 +47,11 @@ export class GameLobby extends PureComponent {
           </main>
         </div>
       )
-    }
+  }
 
     return (
     <main>
+      <DeleteGameButton />
       { this.props.games.map(this.renderGame.bind(this)) }
     </main>
     )
