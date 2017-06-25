@@ -7,6 +7,7 @@ import subscribeToGamesService from '../actions/games/subscribe'
 import CreateGameButton from '../components/CreateGameButton'
 import DeleteGameButton from '../components/DeleteGameButton'
 import JoinGameButton from '../components/JoinGameButton'
+import './GameLobby.css'
 
 export class GameLobby extends PureComponent {
   static propTypes = {
@@ -27,6 +28,14 @@ export class GameLobby extends PureComponent {
   }
 
   render() {
+    if (this.props.currentUser === null) {
+      return(
+        <div>
+        <h1 className="welcome">Welcome to the game Othello! </h1><br/><br/>
+        <h2 className="welcomee">You need to sign up before you can start playing. </h2>
+        </div>
+      )
+    }
     if (!this.props.games[0]) {
       return(
         <div>
